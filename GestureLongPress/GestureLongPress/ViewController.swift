@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  GestureLongPress
 //
-//  Created by Carlos Butron on 01/12/14.
-//  Copyright (c) 2014 Carlos Butron. All rights reserved.
+//  Created by btrn on 01/01/2018.
+//  Copyright © 2018 btrn. All rights reserved.
 //
 
 import UIKit
@@ -14,41 +14,26 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        var longPressGesture = UILongPressGestureRecognizer(target: self, action: "action:")
-        
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.action(_:)))
         longPressGesture.minimumPressDuration = 2.0;
-        
         image.addGestureRecognizer(longPressGesture)
         
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    
-    @IBAction func action(gestureRecognizer:UIGestureRecognizer) {
+    @IBAction func action(_ gestureRecognizer:UIGestureRecognizer) {
         
-        if (gestureRecognizer.state == UIGestureRecognizerState.Began){
+        if (gestureRecognizer.state == UIGestureRecognizerState.began){
             
-            
-            var myAlertView = UIAlertView()
-            
-            myAlertView.title = "Alerta"
-            myAlertView.message = "Gesto Long Press"
-            myAlertView.addButtonWithTitle("ok")
-            
-            myAlertView.show()
-            
-            
+            let alertController = UIAlertController(title: "Alert", message: "Long Press gesture", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in }
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true) { }
         }
-        
-        
-        
     }
     
 }
-

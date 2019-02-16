@@ -2,133 +2,106 @@
 //  ViewController.swift
 //  Gestures
 //
-//  Created by Carlos Butron on 01/12/14.
-//  Copyright (c) 2014 Carlos Butron. All rights reserved.
+//  Created by btrn on 01/01/2018.
+//  Copyright © 2018 btrn. All rights reserved.
 //
 
 import UIKit
 
 class ViewController: UIViewController {
     
-    
     var netRotation:CGFloat = 0
-    
     
     @IBOutlet weak var image: UIImageView!
     
-    
     override func viewDidLoad() {
         
-        //ROTACION
-        var rotateGesture = UIRotationGestureRecognizer(target: self, action: "rotateGesture:")
+        //ROTATION
+        let rotateGesture = UIRotationGestureRecognizer(target: self, action: #selector(ViewController.rotateGesture(_:)))
         image.addGestureRecognizer(rotateGesture)
         
-        
-        
         //SWIPE
-        var swipeGestureRight = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
-        swipeGestureRight.direction = UISwipeGestureRecognizerDirection.Right
+        let swipeGestureRight = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(_:)))
+        swipeGestureRight.direction = UISwipeGestureRecognizerDirection.right
         image.addGestureRecognizer(swipeGestureRight)
         
-        var swipeGestureDown = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
-        swipeGestureDown.direction = UISwipeGestureRecognizerDirection.Down
+        let swipeGestureDown = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(_:)))
+        swipeGestureDown.direction = UISwipeGestureRecognizerDirection.down
         image.addGestureRecognizer(swipeGestureDown)
         
-        var swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
-        swipeGestureLeft.direction = UISwipeGestureRecognizerDirection.Left
+        let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(_:)))
+        swipeGestureLeft.direction = UISwipeGestureRecognizerDirection.left
         image.addGestureRecognizer(swipeGestureLeft)
         
-        var swipeGestureUp = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
-        swipeGestureUp.direction = UISwipeGestureRecognizerDirection.Up
+        let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(_:)))
+        swipeGestureUp.direction = UISwipeGestureRecognizerDirection.up
         image.addGestureRecognizer(swipeGestureUp)
         
-        
-        
         //LONG PRESS
-        var longPressGesture = UILongPressGestureRecognizer(target: self, action: "action:")
-        
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.action(_:)))
         longPressGesture.minimumPressDuration = 2.0;
-        
         image.addGestureRecognizer(longPressGesture)
         
-        
+        image.image = UIImage(named: "image1.png")
         
         super.viewDidLoad()
-        image.image = UIImage(named: "imagen1.png")
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    //ROTACION
-    @IBAction func rotateGesture(sender : UIRotationGestureRecognizer) {
-        var rotation:CGFloat = sender.rotation
-        var transform:CGAffineTransform  =
-        CGAffineTransformMakeRotation(rotation + netRotation)
+    //ROTATION
+    @IBAction func rotateGesture(_ sender : UIRotationGestureRecognizer) {
+        let rotation:CGFloat = sender.rotation
+        let transform:CGAffineTransform  =
+        CGAffineTransform(rotationAngle: rotation + netRotation)
         sender.view?.transform = transform
-        if (sender.state == UIGestureRecognizerState.Ended){
+        if (sender.state == UIGestureRecognizerState.ended){
             netRotation += rotation;
         }
     }
     
-    
     //SWIPE
-    @IBAction func respondToSwipeGesture(send: UIGestureRecognizer) {
+    @IBAction func respondToSwipeGesture(_ send: UIGestureRecognizer) {
         
         if let swipeGesture = send as? UISwipeGestureRecognizer {
-            
             switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.Right:
+            case UISwipeGestureRecognizerDirection.right:
                 changeImage()
-                println("Swiped right")
-            case UISwipeGestureRecognizerDirection.Down:
+                print("Swiped right")
+            case UISwipeGestureRecognizerDirection.down:
                 changeImage()
-                println("Swiped down")
-            case UISwipeGestureRecognizerDirection.Left:
+                print("Swiped down")
+            case UISwipeGestureRecognizerDirection.left:
                 changeImage()
-                println("Swiped left")
-            case UISwipeGestureRecognizerDirection.Up:
+                print("Swiped left")
+            case UISwipeGestureRecognizerDirection.up:
                 changeImage()
-                println("Swiped up")
+                print("Swiped up")
             default:
                 break
             }
         }
     }
     
-    
     //LONG PRESS
-    @IBAction func action(gestureRecognizer:UIGestureRecognizer) {
+    @IBAction func action(_ gestureRecognizer:UIGestureRecognizer) {
         
-        if (gestureRecognizer.state == UIGestureRecognizerState.Began){
-            
-            
-            var myAlertView = UIAlertView()
-            
-            myAlertView.title = "Alerta"
-            myAlertView.message = "Gesto Long Press"
-            myAlertView.addButtonWithTitle("ok")
-            
-            myAlertView.show()
-            
-            
+        if (gestureRecognizer.state == UIGestureRecognizerState.began){
+            let alertController = UIAlertController(title: "Alert", message: "Long Press gesture", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in }
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true) { }
         }
-        
-        
-        
     }
     
     func changeImage(){
-        if (image.image == UIImage(named: "imagen1.png")){
-            image.image = UIImage(named: "imagen2.png")}
+        if (image.image == UIImage(named: "image1.png")){
+            image.image = UIImage(named: "image2.png")}
         else{
-            image.image = UIImage(named: "imagen1.png")
+            image.image = UIImage(named: "image1.png")
         }
     }
-    
-    
+ 
 }
-

@@ -13,7 +13,7 @@
 		0787D9B21A2CD3D100F22957 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0787D9B11A2CD3D100F22957 /* Images.xcassets */; };
 		0787D9B51A2CD3D100F22957 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0787D9B31A2CD3D100F22957 /* LaunchScreen.xib */; };
 		0787D9C11A2CD3D100F22957 /* PinchGestureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0787D9C01A2CD3D100F22957 /* PinchGestureTests.swift */; };
-		0787D9CB1A2CD3F800F22957 /* imagen1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0787D9CA1A2CD3F700F22957 /* imagen1.png */; };
+		0787D9CB1A2CD3F800F22957 /* image1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0787D9CA1A2CD3F700F22957 /* image1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 		0787D9BA1A2CD3D100F22957 /* PinchGestureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinchGestureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0787D9BF1A2CD3D100F22957 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0787D9C01A2CD3D100F22957 /* PinchGestureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinchGestureTests.swift; sourceTree = "<group>"; };
-		0787D9CA1A2CD3F700F22957 /* imagen1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagen1.png; sourceTree = "<group>"; };
+		0787D9CA1A2CD3F700F22957 /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +79,7 @@
 		0787D9A71A2CD3D100F22957 /* PinchGesture */ = {
 			isa = PBXGroup;
 			children = (
-				0787D9CA1A2CD3F700F22957 /* imagen1.png */,
+				0787D9CA1A2CD3F700F22957 /* image1.png */,
 				0787D9AA1A2CD3D100F22957 /* AppDelegate.swift */,
 				0787D9AC1A2CD3D100F22957 /* ViewController.swift */,
 				0787D9AE1A2CD3D100F22957 /* Main.storyboard */,
@@ -159,14 +159,18 @@
 		0787D99D1A2CD3D100F22957 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Carlos Butron";
 				TargetAttributes = {
 					0787D9A41A2CD3D100F22957 = {
 						CreatedOnToolsVersion = 6.1;
+						LastSwiftMigration = 0800;
 					};
 					0787D9B91A2CD3D100F22957 = {
 						CreatedOnToolsVersion = 6.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 0787D9A41A2CD3D100F22957;
 					};
 				};
@@ -195,7 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0787D9CB1A2CD3F800F22957 /* imagen1.png in Resources */,
+				0787D9CB1A2CD3F800F22957 /* image1.png in Resources */,
 				0787D9B01A2CD3D100F22957 /* Main.storyboard in Resources */,
 				0787D9B51A2CD3D100F22957 /* LaunchScreen.xib in Resources */,
 				0787D9B21A2CD3D100F22957 /* Images.xcassets in Resources */,
@@ -272,15 +276,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -293,7 +301,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -314,8 +322,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -323,15 +333,17 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -341,8 +353,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PinchGesture/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "es.carlosbutron.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -351,8 +366,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PinchGesture/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "es.carlosbutron.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -370,7 +388,9 @@
 				);
 				INFOPLIST_FILE = PinchGestureTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "es.carlosbutron.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinchGesture.app/PinchGesture";
 			};
 			name = Debug;
@@ -385,7 +405,9 @@
 				);
 				INFOPLIST_FILE = PinchGestureTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "es.carlosbutron.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinchGesture.app/PinchGesture";
 			};
 			name = Release;
@@ -409,6 +431,7 @@
 				0787D9C61A2CD3D100F22957 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0787D9C71A2CD3D100F22957 /* Build configuration list for PBXNativeTarget "PinchGestureTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +440,7 @@
 				0787D9C91A2CD3D100F22957 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

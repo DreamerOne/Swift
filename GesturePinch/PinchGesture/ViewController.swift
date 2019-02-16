@@ -2,48 +2,42 @@
 //  ViewController.swift
 //  PinchGesture
 //
-//  Created by Carlos Butron on 01/12/14.
-//  Copyright (c) 2014 Carlos Butron. All rights reserved.
+//  Created by btrn on 01/01/2018.
+//  Copyright © 2018 btrn. All rights reserved.
 //
 
 import UIKit
 
-
-
 class ViewController: UIViewController {
     
     var lastScaleFactor:CGFloat = 1
-    @IBOutlet weak var imagen: UIImageView!
-    
+    @IBOutlet weak var image: UIImageView!
     
     override func viewDidLoad() {
         let pinchGesture:UIPinchGestureRecognizer =
-        UIPinchGestureRecognizer(target: self, action: "pinchGesture:")
-        imagen.addGestureRecognizer(pinchGesture)
+        UIPinchGestureRecognizer(target: self, action: #selector(ViewController.pinchGesture(_:)))
+        image.addGestureRecognizer(pinchGesture)
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    
-    @IBAction func pinchGesture(sender : UIPinchGestureRecognizer) {
-        var factor = sender.scale
+    @IBAction func pinchGesture(_ sender : UIPinchGestureRecognizer) {
+        let factor = sender.scale
         if (factor > 1) {
-            //aumentamos el zoom
-            sender.view?.transform = CGAffineTransformMakeScale(
-                lastScaleFactor + (factor-1),
-                lastScaleFactor + (factor-1));
+            //increase zoom
+            sender.view?.transform = CGAffineTransform(
+                scaleX: lastScaleFactor + (factor-1),
+                y: lastScaleFactor + (factor-1));
         } else {
-            //reducimos el zoom
-            sender.view?.transform = CGAffineTransformMakeScale(
-                lastScaleFactor * factor,
-                lastScaleFactor * factor);
+            //decrease zoom
+            sender.view?.transform = CGAffineTransform(
+                scaleX: lastScaleFactor * factor,
+                y: lastScaleFactor * factor);
         }
-        if (sender.state == UIGestureRecognizerState.Ended){
+        if (sender.state == UIGestureRecognizerState.ended){
             if (factor > 1) {
                 lastScaleFactor += (factor-1);
             } else {
@@ -51,6 +45,4 @@ class ViewController: UIViewController {
             } }
     }
     
-    
 }
-

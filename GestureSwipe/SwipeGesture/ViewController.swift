@@ -2,63 +2,56 @@
 //  ViewController.swift
 //  SwipeGesture
 //
-//  Created by Carlos Butron on 01/12/14.
-//  Copyright (c) 2014 Carlos Butron. All rights reserved.
+//  Created by btrn on 01/01/2018.
+//  Copyright © 2018 btrn. All rights reserved.
 //
 
 import UIKit
 
 class ViewController: UIViewController {
     
-    
-    @IBOutlet weak var imagen2: UIImageView!
-    
+    @IBOutlet weak var image2: UIImageView!
     
     override func viewDidLoad() {
         
+        let swipeGestureRight = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(_:)))
+        swipeGestureRight.direction = UISwipeGestureRecognizerDirection.right
+        image2.addGestureRecognizer(swipeGestureRight)
         
-        var swipeGestureRight = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
-        swipeGestureRight.direction = UISwipeGestureRecognizerDirection.Right
-        imagen2.addGestureRecognizer(swipeGestureRight)
+        let swipeGestureDown = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(_:)))
+        swipeGestureDown.direction = UISwipeGestureRecognizerDirection.down
+        image2.addGestureRecognizer(swipeGestureDown)
         
-        var swipeGestureDown = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
-        swipeGestureDown.direction = UISwipeGestureRecognizerDirection.Down
-        imagen2.addGestureRecognizer(swipeGestureDown)
+        let swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(_:)))
+        swipeGestureLeft.direction = UISwipeGestureRecognizerDirection.left
+        image2.addGestureRecognizer(swipeGestureLeft)
         
-        var swipeGestureLeft = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
-        swipeGestureLeft.direction = UISwipeGestureRecognizerDirection.Left
-        imagen2.addGestureRecognizer(swipeGestureLeft)
-        
-        var swipeGestureUp = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
-        swipeGestureUp.direction = UISwipeGestureRecognizerDirection.Up
-        imagen2.addGestureRecognizer(swipeGestureUp)
-        
+        let swipeGestureUp = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(_:)))
+        swipeGestureUp.direction = UISwipeGestureRecognizerDirection.up
+        image2.addGestureRecognizer(swipeGestureUp)
         
         super.viewDidLoad()
         
-        imagen2.image = UIImage(named: "apple.png")
-        // Do any additional setup after loading the view, typically from a nib.
+        image2.image = UIImage(named: "apple.png")
     }
     
-    
-    
-    @IBAction func respondToSwipeGesture(send: UIGestureRecognizer) {
+    @IBAction func respondToSwipeGesture(_ send: UIGestureRecognizer) {
         
         if let swipeGesture = send as? UISwipeGestureRecognizer {
             
             switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.Right:
+            case UISwipeGestureRecognizerDirection.right:
                 changeImage()
-                println("Swiped right")
-            case UISwipeGestureRecognizerDirection.Down:
+                print("Swiped right")
+            case UISwipeGestureRecognizerDirection.down:
                 changeImage()
-                println("Swiped down")
-            case UISwipeGestureRecognizerDirection.Left:
+                print("Swiped down")
+            case UISwipeGestureRecognizerDirection.left:
                 changeImage()
-                println("Swiped left")
-            case UISwipeGestureRecognizerDirection.Up:
+                print("Swiped left")
+            case UISwipeGestureRecognizerDirection.up:
                 changeImage()
-                println("Swiped up")
+                print("Swiped up")
             default:
                 break
             }
@@ -66,21 +59,15 @@ class ViewController: UIViewController {
     }
     
     func changeImage(){
-        if (imagen2.image == UIImage(named: "apple.png")){
-            imagen2.image = UIImage(named: "imagen1.png")}
+        if (image2.image == UIImage(named: "apple.png")){
+            image2.image = UIImage(named: "image1.png")}
         else{
-            imagen2.image = UIImage(named: "apple.png")
+            image2.image = UIImage(named: "apple.png")
         }
     }
     
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    
 }
-
-
